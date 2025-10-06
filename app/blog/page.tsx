@@ -12,26 +12,10 @@ export const metadata: Metadata = createMetadata({
   description: "Notes on AI builds, automation experiments, and analytics lessons from the field.",
 });
 
-type BlogPageProps = {
-  searchParams?: {
-    page?: string;
-  };
-};
+export const dynamic = "force-static";
 
-const POSTS_PER_PAGE = 6;
-
-export default function BlogPage({ searchParams }: BlogPageProps) {
+export default function BlogPage() {
   const posts = getPosts();
-  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
-  const currentPage = (() => {
-    const raw = searchParams?.page ? Number(searchParams.page) : 1;
-    if (!Number.isFinite(raw) || raw < 1) return 1;
-    if (raw > totalPages) return totalPages;
-    return raw;
-  })();
-
-  const start = (currentPage - 1) * POSTS_PER_PAGE;
-  const pagePosts = posts.slice(start, start + POSTS_PER_PAGE);
 
   return (
     <Section
@@ -41,7 +25,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
       contentClassName="space-y-10"
     >
       <div className="grid gap-6 md:grid-cols-3">
-        {pagePosts.map((post) => {
+        {posts.map((post) => {
           const postHref = `/blog/${post.slug}` as Route;
           return (
             <article key={post.slug} className="card flex h-full flex-col justify-between p-6">
@@ -74,27 +58,6 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
           );
         })}
       </div>
-      {totalPages > 1 && (
-        <nav className="flex items-center justify-between text-sm" aria-label="Blog pagination">
-          <Link
-            aria-disabled={currentPage === 1}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-muted-ink transition hover:text-ink aria-disabled:pointer-events-none aria-disabled:opacity-40"
-            href={`/blog?page=${Math.max(1, currentPage - 1)}` as Route}
-          >
-            Previous
-          </Link>
-          <p className="text-muted-ink">
-            Page {currentPage} of {totalPages}
-          </p>
-          <Link
-            aria-disabled={currentPage === totalPages}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-muted-ink transition hover:text-ink aria-disabled:pointer-events-none aria-disabled:opacity-40"
-            href={`/blog?page=${Math.min(totalPages, currentPage + 1)}` as Route}
-          >
-            Next
-          </Link>
-        </nav>
-      )}
     </Section>
   );
 }

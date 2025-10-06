@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ethan Hall — Portfolio
 
-## Getting Started
+A light, responsive portfolio for Ethan G. Hall built with Next.js 14 App Router, TypeScript, and Tailwind CSS. The site highlights projects, resume milestones, writing, and a contact flow—all surfaced from structured data modules for easy updates.
 
-First, run the development server:
+## Tech Stack
+- Next.js 14 (App Router) + TypeScript
+- Tailwind CSS with theme tokens and utility-first layout
+- Zod for form validation, lucide-react icon set
+- Static data modules for projects and posts, dynamic metadata helpers, sitemap/robots
 
+## Local Development
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Visit http://localhost:3000 and edit files under `app/` or `components/` to iterate.
+
+### Quality Checks
+```bash
+npm run lint   # ESLint (custom config with React + accessibility rules)
+npx tsc --noEmit  # TypeScript type safety
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> **Note:** `npm run build` fetches Google Fonts (Inter and Plus Jakarta Sans). If the environment has no outbound network access the build will fail; rerun once connectivity is available.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
+```
+app/            # App Router routes and API handler
+components/     # Reusable UI building blocks
+lib/            # Content registry, SEO utilities, analytics hook
+public/         # Optimized imagery and favicons
+types/          # Shared type declarations
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Key content lives in `lib/projects.ts` and `lib/posts.ts`; update those arrays to refresh project cards, case studies, and blog entries without touching the views.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+Any Next.js-compatible host (Vercel, Netlify, etc.) works. Enable the default Edge runtime for best performance and ensure outbound HTTPS access so font files can be downloaded during the build step.

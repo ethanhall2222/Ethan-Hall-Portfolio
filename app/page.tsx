@@ -1,103 +1,165 @@
-import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import type { Route } from "next";
+import Link from "next/link";
 
-export default function Home() {
+import { Badge } from "@/components/badge";
+import { Button } from "@/components/button";
+import { ProjectCard } from "@/components/project-card";
+import { Section } from "@/components/section";
+import { getPosts } from "@/lib/posts";
+import { projects } from "@/lib/projects";
+
+const highlights = [
+  {
+    title: "Internships",
+    items: [
+      "Lewis Fellow – Data Driven WV",
+      "Supply Chain Analyst Intern – Dot Foods",
+      "Deloitte Student Mentorship Program",
+    ],
+  },
+  {
+    title: "Skills",
+    items: [
+      "Python • C# • R • SQL",
+      "Power BI • Tableau • RapidMiner • Alteryx",
+      "Anthropic • OpenAI • Mistral",
+    ],
+  },
+  {
+    title: "Leadership",
+    items: [
+      "Niedermeyer Scholar leading weekly study labs",
+      "Data Analyst – Data Driven WV",
+      "AWS Cloud Practitioner (in progress)",
+    ],
+  },
+];
+
+export default function HomePage() {
+  const recentPosts = getPosts().slice(0, 3);
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Section className="pt-16" contentClassName="grid gap-10 md:grid-cols-[1.5fr_1fr] md:items-center">
+        <div className="space-y-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">
+            Ethan G. Hall
+          </p>
+          <h1 className="text-balance text-4xl font-semibold text-ink md:text-5xl">
+            MIS + Business Data Analytics at WVU building AI-powered tools, analytics, and automation.
+          </h1>
+          <p className="text-lg text-muted-ink">
+            I design data-informed products that help teams move faster—from meme token dashboards and application trackers to agentic automations for public sector partners.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Button href="/projects" aria-label="View projects" className="min-w-[160px]">
+              View Projects
+            </Button>
+            <Button
+              href="/contact"
+              aria-label="Contact Ethan"
+              variant="ghost"
+              className="min-w-[160px]"
+            >
+              Contact Me
+            </Button>
+          </div>
+          <div className="flex flex-wrap gap-2 pt-2 text-sm text-muted-ink">
+            <Badge>Based in Martinsburg, WV</Badge>
+            <Badge>GPA 3.92</Badge>
+            <Badge>John Chambers College</Badge>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="card h-full bg-gradient-to-br from-white via-white to-blue-50/80 p-6">
+          <p className="text-sm font-semibold text-ink">Now</p>
+          <p className="mt-3 text-sm text-muted-ink">
+            Helping Data Driven WV automate ETL with UiPath and LLM validation. Building AI Career Helper to guide students through targeted prep and application tracking.
+          </p>
+          <div className="mt-6 space-y-4 text-sm text-muted-ink">
+            <p className="font-semibold text-ink">Focus Areas</p>
+            <ul className="space-y-2">
+              <li>• AI-assisted workflow design</li>
+              <li>• Visualization and analytics for operations</li>
+              <li>• Product strategy for student success tools</li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        id="featured"
+        title="Featured Work"
+        subtitle="Projects"
+        contentClassName="grid gap-6 md:grid-cols-2"
+      >
+        {projects.slice(0, 2).map((project) => {
+          const href = `/projects/${project.slug}` as Route;
+          return (
+            <ProjectCard
+              key={project.slug}
+              title={project.title}
+              blurb={project.summary}
+              stack={project.stack}
+              href={href}
+            >
+              <div className="flex items-center gap-2 text-sm text-[var(--accent-strong)]">
+                <span>Explore case study</span>
+                <ArrowRight className="size-4" aria-hidden />
+              </div>
+            </ProjectCard>
+          );
+        })}
+      </Section>
+
+      <Section
+        id="recent"
+        title="Recent"
+        subtitle="Updates"
+        headline="Notes from internships, build logs, and experiments with automation."
+        contentClassName="grid gap-6 md:grid-cols-3"
+      >
+        {recentPosts.map((post) => (
+          <article key={post.slug} className="card flex h-full flex-col justify-between p-6">
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                {new Date(post.date).toLocaleDateString(undefined, {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </p>
+              <h3 className="text-lg font-semibold text-ink">{post.title}</h3>
+              <p className="text-sm text-muted-ink">{post.excerpt}</p>
+            </div>
+            <Link
+              href={`/blog/${post.slug}` as Route}
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]"
+            >
+              Read post
+              <ArrowRight className="size-4" aria-hidden />
+            </Link>
+          </article>
+        ))}
+      </Section>
+
+      <Section
+        id="highlights"
+        title="Highlights"
+        subtitle="Snapshot"
+        contentClassName="grid gap-6 md:grid-cols-3"
+      >
+        {highlights.map((highlight) => (
+          <div key={highlight.title} className="card h-full p-6">
+            <h3 className="text-lg font-semibold text-ink">{highlight.title}</h3>
+            <ul className="mt-4 space-y-2 text-sm text-muted-ink">
+              {highlight.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </Section>
+    </>
   );
 }

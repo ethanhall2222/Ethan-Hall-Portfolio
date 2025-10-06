@@ -4,11 +4,9 @@ import { Badge } from "@/components/badge";
 import { Section } from "@/components/section";
 import { TokenExplorer } from "@/components/token-explorer";
 import { createMetadata } from "@/lib/seo";
-import { getProjectBySlug } from "@/lib/projects";
+import { getDetailedProject } from "@/lib/projects";
 
-const project = getProjectBySlug("meme-token-trader") ?? (() => {
-  throw new Error("Project data missing");
-})();
+const project = getDetailedProject("meme-token-trader");
 
 const tokens: TokenQuote[] = [
   { symbol: "PEPE", name: "Pepe Signal", price: 0.000001, change24h: 6.45, sentiment: "Bullish" },

@@ -6,11 +6,9 @@ import { PracticePlanGenerator } from "@/components/practice-plan";
 import { ResumeBulletHelper } from "@/components/resume-bullet-helper";
 import { ApplicationBoard } from "@/components/application-board";
 import { createMetadata } from "@/lib/seo";
-import { getProjectBySlug } from "@/lib/projects";
+import { getDetailedProject } from "@/lib/projects";
 
-const project = getProjectBySlug("ai-career-helper") ?? (() => {
-  throw new Error("Project data missing");
-})();
+const project = getDetailedProject("ai-career-helper");
 
 export const metadata: Metadata = createMetadata({
   title: project.title,

@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 
 import { Avatar } from "@/components/avatar";
 import { Badge } from "@/components/badge";
+import { Button } from "@/components/button";
 import { Section } from "@/components/section";
 import { TimelineItem } from "@/components/timeline-item";
 import { createMetadata } from "@/lib/seo";
@@ -23,9 +24,7 @@ const skills = [
   "RapidMiner",
   "Alteryx",
   "IBM Cognos",
-  "Anthropic",
-  "OpenAI",
-  "Mistral",
+  "OpenAI/Anthropic/Mistral",
   "Excel",
   "PowerPoint",
 ];
@@ -36,14 +35,21 @@ export default function AboutPage() {
       <div className="space-y-6">
         <Avatar className="w-fit" />
         <p>
-          I’m Ethan Hall, a Management Information Systems major with a Business Data Analytics minor at West Virginia University. My work lives at the intersection of AI, automation, and data visualization, where I help teams make faster, better decisions.
+          I’m Ethan, a student at West Virginia University majoring in MIS with a Business Data Analytics minor. I like building small, reliable pieces—dashboards, automation steps, and study tools—and then learning how to make them useful for real people.
         </p>
-        <p>
-          From Lewis Fellow research at Data Driven WV to supply chain analytics at Dot Foods, I translate messy inputs into clean, actionable dashboards and agentic workflows. I’m especially excited about AI copilots that augment everyday tasks without overwhelming users.
-        </p>
-        <p>
-          Outside of client projects, I build tools like AI Career Helper to help classmates practice interviews, structure resume bullets, and track applications. I love shaping products that remove friction for people chasing ambitious goals.
-        </p>
+        <div className="space-y-2">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">What I’m practicing</h2>
+          <ul className="list-disc space-y-1 pl-5 text-sm text-muted-ink">
+            <li>Turning loose ideas into small, shippable steps</li>
+            <li>Keeping visuals and metrics honest</li>
+            <li>Automating the boring parts without hiding the work</li>
+          </ul>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Button href={"/Ethan_Hall_Resume09052025.pdf" as Route} variant="ghost" className="text-sm">
+            Resume
+          </Button>
+        </div>
         <div>
           <h2 className="text-xl font-semibold text-ink">Tools I rely on</h2>
           <div className="mt-3 flex flex-wrap gap-2">

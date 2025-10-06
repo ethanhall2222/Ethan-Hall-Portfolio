@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import type { Route } from "next";
 import Link from "next/link";
 
@@ -7,7 +8,7 @@ import { Button } from "@/components/button";
 import { ProjectCard } from "@/components/project-card";
 import { Section } from "@/components/section";
 import { getPosts } from "@/lib/posts";
-import { projects } from "@/lib/projects";
+import { getProjectBySlug } from "@/lib/projects";
 
 const highlights = [
   {
@@ -38,19 +39,20 @@ const highlights = [
 
 export default function HomePage() {
   const recentPosts = getPosts().slice(0, 3);
+  const dataDriven = getProjectBySlug("data-driven-wv");
 
   return (
     <>
-      <Section className="pt-16" contentClassName="grid gap-10 md:grid-cols-[1.5fr_1fr] md:items-center">
+      <Section className="pt-16" contentClassName="grid gap-10 md:grid-cols-[1.6fr_1fr] md:items-start">
         <div className="space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">
-            Ethan G. Hall
+            ETHAN G. HALL
           </p>
           <h1 className="text-balance text-4xl font-semibold text-ink md:text-5xl">
-            MIS + Business Data Analytics at WVU building AI-powered tools, analytics, and automation.
+            MIS student at WVU exploring AI-assisted tools, analytics, and automation.
           </h1>
           <p className="text-lg text-muted-ink">
-            I design data-informed products that help teams move faster—from meme token dashboards and application trackers to agentic automations for public sector partners.
+            I’m a Management Information Systems student (Business Data Analytics minor) at West Virginia University. I’m actively building and studying data-informed products—from simple personal tools to team-oriented automations—while learning how to ship things that stay useful.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button href="/projects" aria-label="View projects" className="min-w-[160px]">
@@ -71,18 +73,30 @@ export default function HomePage() {
             <Badge>John Chambers College</Badge>
           </div>
         </div>
-        <div className="card h-full bg-gradient-to-br from-white via-white to-blue-50/80 p-6">
-          <p className="text-sm font-semibold text-ink">Now</p>
-          <p className="mt-3 text-sm text-muted-ink">
-            Helping Data Driven WV automate ETL with UiPath and LLM validation. Building AI Career Helper to guide students through targeted prep and application tracking.
-          </p>
-          <div className="mt-6 space-y-4 text-sm text-muted-ink">
-            <p className="font-semibold text-ink">Focus Areas</p>
-            <ul className="space-y-2">
-              <li>• AI-assisted workflow design</li>
-              <li>• Visualization and analytics for operations</li>
-              <li>• Product strategy for student success tools</li>
-            </ul>
+        <div className="space-y-6">
+          <div className="flex justify-center md:justify-end">
+            <Image
+              src="/headshot.jpg"
+              alt="Ethan Hall headshot"
+              width={192}
+              height={192}
+              priority
+              className="h-44 w-44 rounded-full border border-slate-200 object-cover shadow-sm"
+            />
+          </div>
+          <div className="card h-full bg-gradient-to-br from-white via-white to-blue-50/80 p-6">
+            <p className="text-sm font-semibold text-ink">Now</p>
+            <p className="mt-3 text-sm text-muted-ink">
+              Learning how to scale reliable ETL at Data Driven WV with UiPath and LLM validation. Prototyping AI Career Helper to support student prep and application tracking.
+            </p>
+            <div className="mt-6 space-y-4 text-sm text-muted-ink">
+              <p className="font-semibold text-ink">Focus Areas</p>
+              <ul className="space-y-2">
+                <li>• AI-assisted workflow design</li>
+                <li>• Visualization & analytics for operations</li>
+                <li>• Product strategy for student success tools</li>
+              </ul>
+            </div>
           </div>
         </div>
       </Section>
@@ -91,25 +105,45 @@ export default function HomePage() {
         id="featured"
         title="Featured Work"
         subtitle="Projects"
-        contentClassName="grid gap-6 md:grid-cols-2"
+        contentClassName="space-y-4"
       >
-        {projects.slice(0, 2).map((project) => {
-          const href = `/projects/${project.slug}` as Route;
-          return (
+        <div className="grid gap-6 md:grid-cols-2">
+          {dataDriven && (
             <ProjectCard
-              key={project.slug}
-              title={project.title}
-              blurb={project.summary}
-              stack={project.stack}
-              href={href}
+              title="Data Driven WV — Applied Projects"
+              blurb={dataDriven.summary}
+              stack={dataDriven.stack ?? []}
+              href={"/projects/data-driven-wv" as Route}
             >
-              <div className="flex items-center gap-2 text-sm text-[var(--accent-strong)]">
-                <span>Explore case study</span>
+              <p className="text-sm text-muted-ink">UiPath + LLM ETL • Ops Dashboards • Agentic Prototypes</p>
+              <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]">
+                <span>Visit hub</span>
                 <ArrowRight className="size-4" aria-hidden />
               </div>
             </ProjectCard>
-          );
-        })}
+          )}
+          <ProjectCard
+            title="Personal Projects"
+            blurb="Student-built tools where I test ideas quickly and keep scope friendly."
+            stack={[]}
+            href={"/projects/personal" as Route}
+          >
+            <p className="text-sm text-muted-ink">Meme Token Trading • AI Career Helper</p>
+            <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]">
+              <span>See builds</span>
+              <ArrowRight className="size-4" aria-hidden />
+            </div>
+          </ProjectCard>
+        </div>
+        <div>
+          <Link
+            href={"/projects/school" as Route}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]"
+          >
+            School Projects
+            <ArrowRight className="size-4" aria-hidden />
+          </Link>
+        </div>
       </Section>
 
       <Section

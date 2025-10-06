@@ -13,6 +13,7 @@ export const metadata: Metadata = createMetadata({
 });
 
 export const dynamic = "force-static";
+export const dynamicParams = false;
 
 export default function BlogPage() {
   const posts = getPosts();

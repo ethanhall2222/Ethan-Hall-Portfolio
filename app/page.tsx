@@ -7,7 +7,6 @@ import { Badge } from "@/components/badge";
 import { Button } from "@/components/button";
 import { ProjectCard } from "@/components/project-card";
 import { Section } from "@/components/section";
-import { getPosts } from "@/lib/posts";
 import { getProjectBySlug } from "@/lib/projects";
 
 const highlights = [
@@ -38,7 +37,6 @@ const highlights = [
 ];
 
 export default function HomePage() {
-  const recentPosts = getPosts().slice(0, 3);
   const dataDriven = getProjectBySlug("data-driven-wv");
 
   return (
@@ -147,34 +145,23 @@ export default function HomePage() {
       </Section>
 
       <Section
-        id="recent"
-        title="Recent"
-        subtitle="Updates"
-        headline="Notes from internships, build logs, and experiments with automation."
-        contentClassName="grid gap-6 md:grid-cols-3"
+        id="connect"
+        title="Let’s connect"
+        subtitle="Coffee Chat"
+        contentClassName="max-w-3xl space-y-4"
       >
-        {recentPosts.map((post) => (
-          <article key={post.slug} className="card flex h-full flex-col justify-between p-6">
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                {new Date(post.date).toLocaleDateString(undefined, {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </p>
-              <h3 className="text-lg font-semibold text-ink">{post.title}</h3>
-              <p className="text-sm text-muted-ink">{post.excerpt}</p>
-            </div>
-            <Link
-              href={`/blog/${post.slug}` as Route}
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]"
-            >
-              Read post
-              <ArrowRight className="size-4" aria-hidden />
-            </Link>
-          </article>
-        ))}
+        <div className="card space-y-4 p-6">
+          <p className="text-sm text-muted-ink">
+            I love hearing how other students and builders are approaching data, AI, and automation at school or in internships. Grab a few minutes and we can compare notes over a coffee chat.
+          </p>
+          <Button
+            href={"/contact" as Route}
+            className="w-full sm:w-auto"
+            aria-label="Schedule a coffee chat"
+          >
+            Schedule a coffee chat
+          </Button>
+        </div>
       </Section>
 
       <Section

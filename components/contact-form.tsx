@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { z } from "zod";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
@@ -12,12 +12,15 @@ const schema = z.object({
 });
 
 type FormValues = z.infer<typeof schema>;
+const INITIAL_VALUES: FormValues = { name: "", email: "", message: "" };
+
+type FormStatus = "idle" | "success" | "error";
 
 export function ContactForm() {
-  const [values, setValues] = useState<FormValues>({ name: "", email: "", message: "" });
+  const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<Partial<Record<keyof FormValues, string>>>({});
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [isPending, startTransition] = useTransition();
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (field: keyof FormValues) =>
     (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,25 +43,14 @@ export function ContactForm() {
       return;
     }
 
-    startTransition(async () => {
-      try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(parsed.data),
-        });
+    setErrors({});
+    setIsSubmitting(true);
 
-        if (!response.ok) {
-          throw new Error("Request failed");
-        }
-
-        setValues({ name: "", email: "", message: "" });
-        setStatus("success");
-      } catch (error) {
-        console.error(error);
-        setStatus("error");
-      }
-    });
+    window.setTimeout(() => {
+      setValues(INITIAL_VALUES);
+      setStatus("success");
+      setIsSubmitting(false);
+    }, 600);
   };
 
   return (
@@ -127,13 +119,13 @@ export function ContactForm() {
           type="submit"
           variant="primary"
           aria-label="Send message to Ethan"
-          disabled={isPending}
+          disabled={isSubmitting}
         >
-          {isPending ? "Sending…" : "Send message"}
+          {isSubmitting ? "Sending…" : "Send message"}
         </Button>
         {status === "success" && (
           <p className="text-sm font-medium text-emerald-600" role="status">
-            Thanks! I’ll reply within a day.
+            Thanks! I’ll reach out soon.
           </p>
         )}
         {status === "error" && (

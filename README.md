@@ -35,4 +35,11 @@ types/          # Shared type declarations
 Key content lives in `lib/projects.ts` and `lib/posts.ts`; update those arrays to refresh project cards, case studies, and blog entries without touching the views.
 
 ## Deployment
-Any Next.js-compatible host (Vercel, Netlify, etc.) works. Enable the default Edge runtime for best performance and ensure outbound HTTPS access so font files can be downloaded during the build step.
+GitHub Pages is preconfigured via Actions. Push to `main` and the workflow in `.github/workflows/deploy.yml` will build and publish to `https://ethanhall2222.github.io/Ethan-Hall-Protfolio/`.
+
+Local static export still works with: 
+```bash
+npm run build
+npx serve out
+```
+The app also deploys cleanly to any Next.js-compatible host (Vercel, Netlify, etc.) if you prefer a dynamic platform.

@@ -46,7 +46,7 @@ export default function AboutPage() {
           </ul>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Button href={"/Ethan_Hall_Resume09052025.pdf" as Route} variant="ghost" className="text-sm">
+          <Button href={"/resume.pdf" as Route} variant="ghost" className="text-sm">
             Resume
           </Button>
         </div>

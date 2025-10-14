@@ -32,7 +32,7 @@ export function Header() {
           onClick={close}
         >
           <span className="rounded-xl bg-[var(--accent)] px-3 py-1 text-base font-bold text-white shadow-sm">
-            EH
+            Ethan G. Hall
           </span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">

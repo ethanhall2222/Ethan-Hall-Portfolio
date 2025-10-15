@@ -1,38 +1,12 @@
 import { ArrowRight, Mail, Linkedin, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import type { Route } from "next";
 
-import { Badge } from "@/components/badge";
 import { Button } from "@/components/button";
 import { ProjectCard } from "@/components/project-card";
 import { Section } from "@/components/section";
 import { getProjectBySlug } from "@/lib/projects";
-
-const highlights = [
-  {
-    title: "Internship Experience",
-    items: [
-      "Data Analyst Intern – Data Driven WV",
-      "Supply Chain Analyst Intern – Dot Foods",
-    ],
-  },
-  {
-    title: "Skills",
-    items: [
-      "Python • C# • R • SQL",
-      "Power BI • Tableau • RapidMiner • Alteryx",
-      "Anthropic • OpenAI • Mistral",
-    ],
-  },
-  {
-    title: "Leadership Experience",
-    items: [
-      "Niedermeyer Scholar - West Virginia University",
-      "Lewis Fellow - Data Driven WV",
-    
-    ],
-  },
-];
 
 export default function HomePage() {
   const dataDriven = getProjectBySlug("data-driven-wv");
@@ -40,19 +14,19 @@ export default function HomePage() {
   return (
     <>
       {/* HERO / ABOUT */}
-      <Section id="about" subtitle="About Me" contentClassName="pt-8">
+      <Section id="about" contentClassName="pt-8">
         <div className="grid gap-10 md:grid-cols-[minmax(0,240px)_1fr] md:items-start">
           {/* LEFT: headshot + social links (fixed narrow column, stacked vertically) */}
           <aside className="flex flex-col items-start gap-6">
-            <div className="w-44">
+            <div className="w-48">
               <div className="rounded-full border-4 border-white/80 bg-gradient-to-br from-blue-50 via-white to-transparent p-1 shadow-subtle">
                 <Image
-                  src="/headshot.jpg"
-                  alt="Ethan G. Hall"
-                  width={192}
-                  height={192}
+                  src="/images/EthanHallHeadshot.jpeg"
+                  alt="Ethan G. Hall headshot"
+                  width={200}
+                  height={200}
                   priority
-                  className="h-44 w-44 rounded-full object-cover"
+                  className="h-48 w-48 rounded-full object-cover shadow-lg"
                 />
               </div>
             </div>
@@ -92,9 +66,6 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-            <Button href="/resume.pdf" className="w-full md:w-auto" aria-label="View resume">
-              View Resume
-            </Button>
           </aside>
 
           {/* RIGHT: about copy + calls to action */}
@@ -102,49 +73,46 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-accent">ETHAN G. HALL</p>
 
             <p className="text-lg text-muted-ink">
-              I’m a senior at West Virginia University studying Management Information Systems with a minor in Business Data Analytics.My main interests revolve around solving real business problems with technology. I currently am a Lewis Fellow with Data Driven WV where i work on two projects. The first project is analyzing how the use of Agentic AI can help you gain a functional understadning of code reposiories within the government sector. The other project is implementing a CRM for a non profit. 
+              I&apos;m a senior at West Virginia University studying Management Information Systems with a minor in Business Data Analytics. My main interests revolve around solving real business problems with technology. I&apos;m currently a Lewis Fellow with Data Driven WV where I work on two projects. The first project explores how agentic AI can help you gain a functional understanding of code repositories within the government sector. The other project is implementing a CRM for a nonprofit.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Button href="/projects" aria-label="View projects" className="min-w-[160px]">
-                View Projects
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Button
+                href={"/res.pdf" as Route}
+                aria-label="View resume"
+                className="min-w-[160px]"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Resume
               </Button>
-              <Button href="/contact" aria-label="Contact Ethan" variant="ghost" className="min-w-[160px]">
+              <Button href={"/contact" as Route} aria-label="Contact Ethan" variant="ghost" className="min-w-[160px]">
                 Contact Me
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-2 text-sm text-muted-ink">
-              <Badge>From Martinsburg, WV</Badge>
-              <Badge>GPA 3.92</Badge>
-              <Badge>West Virginia University</Badge>
-            </div>
+ 
           </div>
         </div>
       </Section>
 
-      {/* CURRENTLY LEARNING */}
+      {/* CURRENTLY */}
       <Section
         id="learning"
-        subtitle="Focus"
+        subtitle="Currently"
         contentClassName="grid gap-8 md:grid-cols-[1.4fr_1fr]"
       >
         <div className="space-y-4 text-lg text-muted-ink">
           <p>
-            My coursework at WVU has focused on building a strong foundation in data analytics, business intelligence, and information systems. I have taken courses in database management, data mining, business analytics, and information systems strategy. I have also gained hands-on experience through internships and projects, where I have applied my knowledge to real-world problems. Currently I am taking a computational statistics class where I am answering real business questions using R to analyze the data. 
+            My coursework at WVU has focused on building a strong foundation in data analytics, business intelligence, and information systems. I have taken courses in database management, data mining, business analytics, and information systems strategy. I have also gained hands-on experience through internships and projects, where I have applied my knowledge to real-world problems. I&apos;m currently taking a computational statistics class where I answer real business questions using R to analyze the data.
           </p>
           <p>
-            On the side I&apos;ve been working on developing two different web applications. The first is a meme token trading website that allows users to browse and compare meme tokens. The second is a AI career helper that helps users prepare for interviews and write resumes.
+            On the side I&apos;ve been working on developing two different web applications. The first is a meme token trading website that allows users to browse and compare meme tokens. The second is an AI career helper that helps users prepare for interviews and write resumes.
           </p>
         </div>
 
-        <div className="card h-full bg-gradient-to-br from-white via-white to-blue-50/80 p-6">
-          <p className="text-sm font-semibold text-ink">Focus Areas</p>
-          <ul className="mt-4 space-y-2 text-sm text-muted-ink">
-            <li>• AI-assisted workflow design</li>
-            <li>• Visualization & analytics for operations</li>
-            <li>• Product strategy for student success tools</li>
-          </ul>
+        <div>
+
         </div>
       </Section>
 
@@ -156,7 +124,7 @@ export default function HomePage() {
               title="Data Driven WV — Applied Projects"
               blurb={dataDriven.summary}
               stack={dataDriven.stack ?? []}
-              href={`/projects/${dataDriven.slug}`}
+              href={`/projects/${dataDriven.slug}` as Route}
             >
               <p className="text-sm text-muted-ink">UiPath + LLM ETL • Ops Dashboards • Agentic Prototypes</p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]">
@@ -170,7 +138,7 @@ export default function HomePage() {
             title="Personal Projects"
             blurb="Student-built tools where I test ideas quickly and keep scope friendly."
             stack={["Next.js", "Tailwind"]}
-            href="/projects/personal"
+            href={"/projects/personal" as Route}
           >
             <p className="text-sm text-muted-ink">Meme Token Trading • AI Career Helper</p>
             <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]">
@@ -186,20 +154,6 @@ export default function HomePage() {
             <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>
-      </Section>
-
-      {/* HIGHLIGHTS */}
-      <Section id="highlights" title="Highlights" subtitle="Snapshot" contentClassName="grid gap-6 md:grid-cols-3">
-        {highlights.map((h) => (
-          <div key={h.title} className="card h-full p-6">
-            <h3 className="text-lg font-semibold text-ink">{h.title}</h3>
-            <ul className="mt-4 space-y-2 text-sm text-muted-ink">
-              {h.items.map((it) => (
-                <li key={it}>{it}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
       </Section>
     </>
   );

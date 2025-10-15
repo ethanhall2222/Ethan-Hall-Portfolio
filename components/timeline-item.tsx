@@ -7,6 +7,7 @@ type TimelineItemProps = PropsWithChildren<{
   subtitle?: string;
   icon?: ReactNode;
   className?: string;
+  badgeLabel?: string;
 }>;
 
 export function TimelineItem({
@@ -15,6 +16,7 @@ export function TimelineItem({
   period,
   icon,
   className,
+  badgeLabel,
   children,
 }: TimelineItemProps) {
   return (
@@ -28,7 +30,14 @@ export function TimelineItem({
       <div className="flex-1 rounded-2xl border border-slate-200 bg-white/80 p-5">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h3 className="text-lg font-semibold text-ink">{title}</h3>
-          <span className="text-sm font-medium text-muted-ink">{period}</span>
+          <div className="flex items-center gap-2">
+            {badgeLabel && (
+              <span className="rounded-full border border-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--accent-strong)]">
+                {badgeLabel}
+              </span>
+            )}
+            <span className="text-sm font-medium text-muted-ink">{period}</span>
+          </div>
         </div>
         {subtitle && <p className="mt-2 text-sm text-muted-ink">{subtitle}</p>}
         {children && <div className="mt-3 text-sm text-muted-ink">{children}</div>}

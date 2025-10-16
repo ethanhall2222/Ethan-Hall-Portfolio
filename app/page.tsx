@@ -1,5 +1,4 @@
 import { ArrowRight, Mail, Linkedin, MapPin } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 
@@ -7,6 +6,7 @@ import { Button } from "@/components/button";
 import { ProjectCard } from "@/components/project-card";
 import { Section } from "@/components/section";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const recentWins = [
   {
@@ -57,13 +57,13 @@ export default function HomePage() {
           <aside className="flex flex-col items-start gap-6">
             <div className="w-48">
               <div className="rounded-full border-4 border-white/80 bg-gradient-to-br from-blue-50 via-white to-transparent p-1 shadow-subtle">
-                <Image
-                  src="/images/EthanHallHeadshot.jpeg"
+                <img
+                  src={`${basePath}/images/EthanHallHeadshot.jpeg`}
                   alt="Ethan G. Hall headshot"
                   width={200}
                   height={200}
-                  priority
                   className="h-48 w-48 rounded-full object-cover shadow-lg"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function HomePage() {
       </Section>
 
       {/* CURRENTLY */}
-      <Section id="currently" contentClassName="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_1fr]">
+      <Section id="currently" contentClassName="grid gap-12 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
         <div className="space-y-4 text-lg text-muted-ink">
           <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Currently</h2>
           <p>
@@ -143,19 +143,19 @@ export default function HomePage() {
           <p>
             On the side I&apos;ve been working on developing two different web applications. The first is a meme token trading website that allows users to browse and compare meme tokens. The second is an AI career helper that helps users prepare for interviews and write resumes.
           </p>
-          <section className="pt-8">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-blue-500">Recent Wins</h2>
-            <div className="mt-12 space-y-8 border-l border-gray-200 pl-6">
-              {recentWins.map((win) => (
-                <div key={win.title} className="relative">
-                  <span className="absolute -left-3 top-1 h-2 w-2 rounded-full bg-blue-500" aria-hidden />
-                  <h3 className="text-lg font-semibold text-gray-900">{win.title}</h3>
-                  <p className="mt-1 text-sm text-gray-600">{win.description}</p>
-                </div>
-              ))}
-            </div>
-          </section>
         </div>
+        <aside className="space-y-6 text-muted-ink">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-blue-500">Recent Wins</h2>
+          <div className="space-y-8 border-l border-gray-200 pl-6">
+            {recentWins.map((win) => (
+              <div key={win.title} className="relative">
+                <span className="absolute -left-3 top-1 h-2 w-2 rounded-full bg-blue-500" aria-hidden />
+                <h3 className="text-lg font-semibold text-gray-900">{win.title}</h3>
+                <p className="mt-1 text-sm text-gray-600">{win.description}</p>
+              </div>
+            ))}
+          </div>
+        </aside>
       </Section>
 
       {/* PROJECT SNAPSHOTS */}

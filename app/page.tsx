@@ -58,7 +58,7 @@ export default function HomePage() {
             <div className="w-48">
               <div className="rounded-full border-4 border-white/80 bg-gradient-to-br from-blue-50 via-white to-transparent p-1 shadow-subtle">
                 <Image
-                  src="/public/images/EthanHallHeadshot.jpeg"
+                  src="/images/EthanHallHeadshot.jpeg"
                   alt="Ethan G. Hall headshot"
                   width={200}
                   height={200}

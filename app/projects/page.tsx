@@ -30,7 +30,7 @@ export const metadata: Metadata = createMetadata({
   title: "Projects",
   path: "/projects",
   description:
-    "Three lenses on Ethan Hall's work—organization projects, coursework, and personal experiments—with links into deeper breakdowns.",
+    "Three lenses on Ethan Hall's work: organization projects, coursework, and personal experiments, with links into deeper breakdowns.",
 });
 
 export default function ProjectsPage() {

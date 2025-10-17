@@ -30,9 +30,9 @@ const projects = [
       aria: "View project details for Phishing Website Detection",
     },
     secondary: {
-      href: "/assets/reports/phishing-website-detection-report.pdf",
+      href: "/assets/reports/phishing-website-detection.pdf",
       label: "Download report (PDF)",
-      aria: "Download the phishing website detection report PDF",
+      aria: "Download the phishing website detection PDF",
     },
   },
   {

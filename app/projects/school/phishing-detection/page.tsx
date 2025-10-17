@@ -82,8 +82,8 @@ export default function PhishingDetectionPage() {
       <article className="card border border-slate-200 bg-white/85 p-6 shadow-sm">
         <h3 className="text-lg font-semibold text-ink">Artifacts</h3>
         <a
-          href="/assets/reports/phishing-website-detection-report.pdf"
-          aria-label="Download the phishing website detection report PDF"
+          href="/assets/reports/phishing-website-detection.pdf"
+          aria-label="Download the phishing website detection PDF"
           className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--accent-strong)]/30 bg-[var(--accent)]/10 px-4 py-2 text-sm font-semibold text-[var(--accent-strong)] transition hover:border-[var(--accent-strong)]/60"
         >
           Download report (PDF)

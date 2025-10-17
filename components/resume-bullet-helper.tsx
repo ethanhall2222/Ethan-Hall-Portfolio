@@ -18,7 +18,7 @@ export function ResumeBulletHelper() {
       return "";
     }
 
-    return `${segments[0]} — ${segments.slice(1).join(", ")}.`;
+    return `${segments[0]} - ${segments.slice(1).join(", ")}.`;
   }, [role, action, result, metric]);
 
   const reset = () => {

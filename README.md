@@ -1,6 +1,6 @@
-# Ethan Hall — Portfolio
+# Ethan Hall - Portfolio
 
-A light, responsive portfolio for Ethan G. Hall built with Next.js 14 App Router, TypeScript, and Tailwind CSS. The site highlights projects, resume milestones, writing, and a contact flow—all surfaced from structured data modules for easy updates.
+A light, responsive portfolio for Ethan G. Hall built with Next.js 14 App Router, TypeScript, and Tailwind CSS. The site highlights projects, resume milestones, writing, and a contact flow, all surfaced from structured data modules for easy updates.
 
 ## Tech Stack
 - Next.js 14 (App Router) + TypeScript

@@ -56,7 +56,7 @@ export const projects: Project[] = [
     slug: "ai-career-helper",
     title: "AI Career Helper",
     summary:
-      "STAR practice prompts, resume-bullet helper, and a simple applications board—focused on student workflows.",
+      "STAR practice prompts, resume-bullet helper, and a simple applications board focused on student workflows.",
     category: "personal",
     stack: ["Next.js", "TypeScript", "Tailwind", "lucide-react"],
     problem:
@@ -82,9 +82,9 @@ export const projects: Project[] = [
   },
   {
     slug: "data-driven-wv",
-    title: "Data Driven WV — Applied Projects",
+    title: "Data Driven WV - Applied Projects",
     summary:
-      "Selected organization work where I learned to pair UiPath with LLM validation and keep humans in the loop—staying pragmatic with dashboards and small agentic helpers.",
+      "Selected organization work where I learned to pair UiPath with LLM validation and keep humans in the loop, staying pragmatic with dashboards and small agentic helpers.",
     category: "data-driven-wv",
     subitems: [
       {
@@ -109,7 +109,7 @@ export const projects: Project[] = [
   },
   {
     slug: "school-projects",
-    title: "School Projects — WVU",
+    title: "School Projects - WVU",
     summary:
       "Course projects that helped me practice modeling, visualization, and explaining limitations.",
     category: "school",

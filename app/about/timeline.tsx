@@ -93,7 +93,7 @@ function formatRange(startISO: string, endISO: string | null) {
   const format = (date: Date) => date.toLocaleDateString(undefined, { month: "short", year: "numeric" });
   const start = format(new Date(startISO));
   const end = endISO ? format(new Date(endISO)) : "Present";
-  return `${start} — ${end}`;
+  return `${start} - ${end}`;
 }
 
 function formatDuration(startISO: string, endISO: string | null) {

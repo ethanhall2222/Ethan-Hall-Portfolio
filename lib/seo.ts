@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const siteMeta = {
-  name: "Ethan Hall — Portfolio",
-  titleTemplate: "%s — Ethan Hall",
+  name: "Ethan Hall - Portfolio",
+  titleTemplate: "%s - Ethan Hall",
   description: "MIS + Business Data Analytics student at WVU building AI-powered tools, analytics, and automation.",
   url: "https://ethanhall.dev",
   ogImage: "/og.jpg",
@@ -15,7 +15,7 @@ type MetadataInput = {
 };
 
 export function createMetadata({ title, description, path }: MetadataInput): Metadata {
-  const resolvedTitle = title === siteMeta.name ? title : `${title} — Ethan Hall`;
+  const resolvedTitle = title === siteMeta.name ? title : `${title} - Ethan Hall`;
   const fullUrl = path ? new URL(path, siteMeta.url).toString() : siteMeta.url;
   const resolvedDescription = description ?? siteMeta.description;
 

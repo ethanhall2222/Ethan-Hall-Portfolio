@@ -10,19 +10,19 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
-      <h1 className="mb-10 text-3xl font-bold tracking-tight">Contact</h1>
+    <main className="mx-auto w-full max-w-6xl px-6 py-16">
+      <h1 className="mb-10 text-3xl font-bold tracking-tight text-ink">Contact</h1>
 
-      <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2">
+      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,2.25fr)_minmax(0,1fr)]">
         {/* Left card: Outlook Bookings */}
         <section
           aria-labelledby="schedule-title"
-          className="flex h-full flex-col rounded-2xl border p-8 shadow-sm"
+          className="flex h-full flex-col rounded-3xl border border-slate-200 bg-white/85 p-8 shadow-sm"
         >
           <h2 id="schedule-title" className="text-2xl font-semibold">
             Schedule a meeting
           </h2>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-3 text-sm leading-relaxed text-muted-ink">
             Use the calendar below to pick a time. It checks my Outlook calendar
             and only shows when I am available.
           </p>
@@ -30,7 +30,8 @@ export default function ContactPage() {
           <iframe
             title="Schedule a meeting with Ethan Hall"
             src={BOOKINGS_URL}
-            className="mt-6 w-full grow rounded-xl border"
+            className="mt-6 w-full grow rounded-[28px] border border-slate-200 bg-white"
+            style={{ minHeight: 520 }}
             loading="lazy"
           />
 
@@ -38,7 +39,7 @@ export default function ContactPage() {
             href={BOOKINGS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block text-sm text-blue-600 underline"
+            className="mt-5 inline-block text-sm font-semibold text-[var(--accent-strong)] underline"
           >
             Open full scheduling page
           </a>
@@ -47,23 +48,35 @@ export default function ContactPage() {
         {/* Right card: Direct contact */}
         <section
           aria-labelledby="direct-title"
-          className="flex h-full flex-col justify-between rounded-2xl border p-8 shadow-sm"
+          className="flex h-full flex-col gap-6 rounded-3xl border border-slate-200 bg-white/85 p-8 shadow-sm"
         >
-          <div>
-            <h2 id="direct-title" className="text-2xl font-semibold">
-              Contact me directly
-            </h2>
-            <p className="mt-2 text-gray-600">
-              Prefer to reach out yourself. Send me an email or connect on
-              LinkedIn.
-            </p>
+          <div className="flex flex-col items-center text-center">
+            <div className="w-32 overflow-hidden rounded-full border-4 border-white shadow-lg">
+              <img
+                src="/images/EthanHallHeadshot.jpeg"
+                alt="Ethan Hall"
+                className="h-32 w-32 object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="mt-4 space-y-1">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                Contact me directly
+              </p>
+              <h2 id="direct-title" className="text-xl font-semibold text-ink">
+                Let’s connect
+              </h2>
+              <p className="text-sm text-muted-ink">
+                Prefer to reach out yourself? Drop me a note or send a quick connection request.
+              </p>
+            </div>
           </div>
 
-          <div className="mt-8 space-y-4 text-gray-800">
+          <div className="mt-2 space-y-4 text-sm text-ink">
             <p>
               <span className="font-semibold">Email:</span>{" "}
               <a
-                className="text-blue-600 underline"
+                className="text-[var(--accent-strong)] underline"
                 href="mailto:egh00012@mix.wvu.edu"
               >
                 egh00012@mix.wvu.edu
@@ -72,7 +85,7 @@ export default function ContactPage() {
             <p>
               <span className="font-semibold">Phone:</span>{" "}
               <a
-                className="text-blue-600 underline"
+                className="text-[var(--accent-strong)] underline"
                 href="tel:+13042402680"
               >
                 (304) 240-2680
@@ -81,7 +94,7 @@ export default function ContactPage() {
             <p>
               <span className="font-semibold">LinkedIn:</span>{" "}
               <a
-                className="text-blue-600 underline"
+                className="text-[var(--accent-strong)] underline"
                 href="https://www.linkedin.com/in/ethanghall/"
                 target="_blank"
                 rel="noopener noreferrer"

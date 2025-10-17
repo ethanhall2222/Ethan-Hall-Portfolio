@@ -9,6 +9,20 @@ export type Post = {
 
 const posts: Post[] = [
   {
+    slug: "buda-525-wrap-up",
+    title: "Finishing BUDA 525: Computational Statistics in Practice",
+    date: "2025-10-10",
+    excerpt:
+      "Wrapped up my first graduate course by pairing R, resampling, and Monte Carlo simulations with projects that feed my analytics workflow.",
+    tags: ["Graduate", "Statistics", "WVU"],
+    content: [
+      "Last week I submitted the final project for BUDA 525, West Virginia University’s computational statistics course. The class stretched the way I think about uncertainty by forcing every concept through R scripts, simulation, and real datasets instead of just spreadsheets.",
+      "Weekly labs meant bootstrapping confidence intervals, running Monte Carlo experiments, and writing modular R functions that I can now drop into Data Driven WV automation projects. The emphasis on reproducible workflows pushed me to tighten my version control habits around research code.",
+      "For the capstone analysis I compared generalized linear models and random forests on a public health dataset, using cross-validation and permutation importance to explain tradeoffs to stakeholders. The story I delivered was clearer because every statistic was backed by simulation diagnostics.",
+      "The biggest takeaway is how computational stats bridges academic rigor and the messy datasets I see in client work. I have a stronger toolbox for validating AI outputs, sizing sample requirements, and communicating why a model recommendation is trustworthy.",
+    ],
+  },
+  {
     slug: "ai-career-helper-takeaways",
     title: "What I Learned Building AI Career Helper",
     date: "2025-08-12",
@@ -18,7 +32,7 @@ const posts: Post[] = [
     content: [
       "The AI Career Helper project started as a question from classmates: how do we practice for interviews when every role expects something different? Structuring prompts with the STAR method let me keep the interface simple while still personalizing guidance.",
       "Because this was a solo build, I leaned heavily on prototyping quick React components. Tailwind’s utility classes and a clearly defined state model made it easy to extend features like the resume bullet helper without rewriting core logic.",
-      "The biggest takeaway is that users crave a confident default. Offering a suggested practice plan provides momentum—even if they eventually customize it. That small nudge increases completion rates across every cohort I tested with.",
+      "The biggest takeaway is that users crave a confident default. Offering a suggested practice plan provides momentum, even if they eventually customize it. That small nudge increases completion rates across every cohort I tested with.",
     ],
   },
   {
@@ -56,4 +70,3 @@ export function getPosts(): Post[] {
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((post) => post.slug === slug);
 }
-

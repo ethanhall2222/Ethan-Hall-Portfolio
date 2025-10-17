@@ -1,6 +1,6 @@
 const isProd = process.env.NODE_ENV === "production";
 
-const repoName = "Ethan-Hall-Protfolio";
+const repoName = "Ethan-Hall-Portfolio";
 
 const nextConfig = {
   output: "export",

@@ -35,7 +35,7 @@ types/          # Shared type declarations
 Key content lives in `lib/projects.ts` and `lib/posts.ts`; update those arrays to refresh project cards, case studies, and blog entries without touching the views.
 
 ## Deployment
-GitHub Pages is preconfigured via Actions. Push to `main` and the workflow in `.github/workflows/deploy.yml` will build and publish to `https://ethanhall2222.github.io/Ethan-Hall-Protfolio/`.
+GitHub Pages is preconfigured via Actions. Push to `main` and the workflow in `.github/workflows/deploy.yml` will build and publish to `https://ethanhall2222.github.io/Ethan-Hall-Portfolio/`.
 
 Local static export still works with: 
 ```bash

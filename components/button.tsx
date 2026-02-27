@@ -9,8 +9,10 @@ const baseClasses =
   "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)]";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "bg-[var(--accent-strong)] text-white shadow-sm transition hover:bg-[var(--accent)]",
-  ghost: "border border-slate-300 bg-white/80 text-ink transition hover:border-[var(--accent)] hover:text-[var(--accent-strong)]",
+  primary:
+    "border border-teal-200/40 bg-gradient-to-r from-[rgba(36,212,198,0.94)] to-[rgba(14,165,233,0.86)] text-slate-950 shadow-[0_16px_30px_-18px_var(--glow)] transition hover:-translate-y-0.5 hover:brightness-110",
+  ghost:
+    "border border-[var(--border)] bg-[rgba(16,26,49,0.7)] text-ink transition hover:border-[var(--accent)] hover:bg-[rgba(36,212,198,0.14)]",
 };
 
 type BaseProps = {

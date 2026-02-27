@@ -5,18 +5,18 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-white/70">
+    <footer className="mt-14 border-t border-[var(--border)] bg-[rgba(7,12,26,0.86)]">
       <Container className="flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
         <div className="max-w-sm space-y-2 text-sm text-muted-ink">
           <p>
-            Let me know if you want to collaborate or swap ideas anytime. I’m always looking for thoughtful teams and
-            interesting problems.
+            Open to product, analytics, and AI-focused roles where business context and technical execution actually
+            meet.
           </p>
         </div>
         <SocialLinks />
       </Container>
-      <Container className="pb-8 text-xs text-muted-ink">
-        © {year} Ethan G. Hall. All rights reserved.
+      <Container className="pb-8 text-xs text-muted-ink/80">
+        © {year} Ethan G. Hall. Built for speed, clarity, and shipping.
       </Container>
     </footer>
   );

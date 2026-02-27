@@ -18,7 +18,7 @@ export function ProjectCard({ title, blurb, href, stack, className, children }: 
   return (
     <article
       className={cn(
-        "group flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-[var(--card)] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl focus-within:-translate-y-1 focus-within:shadow-xl",
+        "group glass flex h-full flex-col justify-between rounded-2xl p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_70px_-35px_var(--glow)] focus-within:-translate-y-1.5",
         className,
       )}
     >
@@ -27,7 +27,7 @@ export function ProjectCard({ title, blurb, href, stack, className, children }: 
           <h3 className="text-xl font-semibold text-ink">{title}</h3>
           <ArrowUpRight
             aria-hidden
-            className="size-5 text-accent transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+            className="size-5 text-[var(--accent)] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
           />
         </div>
         <p className="text-sm text-muted-ink">{blurb}</p>

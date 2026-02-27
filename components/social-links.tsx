@@ -32,7 +32,7 @@ export function SocialLinks() {
     <ul className="flex flex-wrap gap-4 text-sm text-muted-ink">
       {socials.map(({ href, icon: Icon, label, text }) => {
         const classes =
-          "inline-flex items-center gap-2 rounded-full border border-transparent px-4 py-2 transition hover:border-[var(--accent)] hover:text-[var(--accent-strong)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)]";
+          "inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[rgba(16,26,49,0.7)] px-4 py-2 transition hover:border-[var(--accent)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)]";
 
         const linkProps = href.startsWith("http")
           ? { href, target: "_blank", rel: "noopener noreferrer" as const }

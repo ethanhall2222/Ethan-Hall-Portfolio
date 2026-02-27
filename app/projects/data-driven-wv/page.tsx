@@ -35,17 +35,17 @@ const projects = [
     href: "/projects/data-driven-wv/uipath-llm",
   },
   {
-    title: "Kentro AI + Databricks Integration",
+    title: "Enterprise AI + Databricks Integration",
     subtitle: "Building intelligent automation inside a modern data stack.",
     summary:
-      "Teamed with Kentro’s analytics group to prototype an AI agent that orchestrates Databricks workflows and improves model iteration.",
+      "Teamed with an enterprise analytics group to prototype an AI agent that orchestrates Databricks workflows and improves model iteration.",
     href: "/projects/data-driven-wv/kentro-databricks",
   },
   {
-    title: "Bridle Paths CRM Implementation",
+    title: "Nonprofit CRM Implementation",
     subtitle: "Modernizing nonprofit operations with Zoho CRM.",
     summary:
-      "Worked alongside Bridle Paths leadership to launch a Zoho CRM that unifies volunteers, donors, and lesson scheduling in one system.",
+      "Worked alongside nonprofit leadership to launch a Zoho CRM that unifies volunteers, donors, and lesson scheduling in one system.",
     href: "/projects/data-driven-wv/bridle-paths-crm",
   },
 ];

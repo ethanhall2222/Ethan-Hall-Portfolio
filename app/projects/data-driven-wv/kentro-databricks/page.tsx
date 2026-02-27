@@ -7,21 +7,21 @@ import { createMetadata } from "@/lib/seo";
 const breadcrumbItems = [
   { href: "/projects", label: "Projects" },
   { href: "/projects/data-driven-wv", label: "Data Driven WV - Applied Projects" },
-  { href: "/projects/data-driven-wv/kentro-databricks", label: "Kentro AI + Databricks Integration" },
+  { href: "/projects/data-driven-wv/kentro-databricks", label: "Enterprise AI + Databricks Integration" },
 ];
 
 export const metadata: Metadata = createMetadata({
-  title: "Kentro AI + Databricks Integration",
-  description: "Prototyping an AI agent to orchestrate data workflows inside Kentro’s Databricks environment.",
+  title: "Enterprise AI + Databricks Integration",
+  description: "Prototyping an AI agent to orchestrate data workflows inside an enterprise Databricks environment.",
   path: "/projects/data-driven-wv/kentro-databricks",
 });
 
 export default function KentroDatabricksPage() {
   return (
     <Section
-      title="Kentro AI + Databricks Integration"
+      title="Enterprise AI + Databricks Integration"
       subtitle="Case Study"
-      headline="Helping Kentro’s analytics team design an AI agent that keeps Databricks workflows running smoothly while giving data scientists tighter feedback loops."
+      headline="Helping an enterprise analytics team design an AI agent that keeps Databricks workflows running smoothly while giving data scientists tighter feedback loops."
       contentClassName="space-y-10"
     >
       <Breadcrumbs items={breadcrumbItems} />
@@ -30,7 +30,7 @@ export default function KentroDatabricksPage() {
         <article className="card border border-slate-200 bg-white/85 p-6 shadow-sm">
           <h3 className="text-lg font-semibold text-ink">Project overview</h3>
           <p className="mt-4 text-sm leading-relaxed text-muted-ink">
-            Kentro needed a way to experiment with generative AI inside its Databricks estate without disrupting
+            The partner team needed a way to experiment with generative AI inside its Databricks estate without disrupting
             production workloads. I partnered with their platform engineers to prototype an agent that could orchestrate
             data pipeline runs, surface context to ML engineers, and log every action for auditability. The pilot focused
             on augmented workflow management rather than replacing human decision-making.

@@ -7,21 +7,21 @@ import { createMetadata } from "@/lib/seo";
 const breadcrumbItems = [
   { href: "/projects", label: "Projects" },
   { href: "/projects/data-driven-wv", label: "Data Driven WV - Applied Projects" },
-  { href: "/projects/data-driven-wv/bridle-paths-crm", label: "Bridle Paths CRM Implementation" },
+  { href: "/projects/data-driven-wv/bridle-paths-crm", label: "Nonprofit CRM Implementation" },
 ];
 
 export const metadata: Metadata = createMetadata({
-  title: "Bridle Paths CRM Implementation",
-  description: "Deploying Zoho CRM to streamline operations for Bridle Paths, a therapeutic riding nonprofit.",
+  title: "Nonprofit CRM Implementation",
+  description: "Deploying Zoho CRM to streamline operations for a therapeutic riding nonprofit.",
   path: "/projects/data-driven-wv/bridle-paths-crm",
 });
 
 export default function BridlePathsCrmPage() {
   return (
     <Section
-      title="Bridle Paths CRM Implementation"
+      title="Nonprofit CRM Implementation"
       subtitle="Case Study"
-      headline="Modernizing Bridle Paths’ volunteer, donor, and lesson management by rolling out a full Zoho CRM environment tailored to their therapeutic riding programs."
+      headline="Modernizing volunteer, donor, and lesson management by rolling out a full Zoho CRM environment tailored to therapeutic riding programs."
       contentClassName="space-y-10"
     >
       <Breadcrumbs items={breadcrumbItems} />
@@ -30,7 +30,7 @@ export default function BridlePathsCrmPage() {
         <article className="card border border-slate-200 bg-white/85 p-6 shadow-sm">
           <h3 className="text-lg font-semibold text-ink">Project overview</h3>
           <p className="mt-4 text-sm leading-relaxed text-muted-ink">
-            Bridle Paths needed a centralized system to manage volunteers, riders, and donors without losing the
+            The organization needed a centralized system to manage volunteers, riders, and donors without losing the
             personal touch that defines their community. I scoped workflows with the executive director, then configured
             Zoho CRM modules, automations, and views so the team could capture intake information, schedule lessons, and
             coordinate communication in one place.
@@ -52,7 +52,7 @@ export default function BridlePathsCrmPage() {
         <article className="card border border-slate-200 bg-white/85 p-6 shadow-sm">
           <h3 className="text-lg font-semibold text-ink">Impact</h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-ink">
-            <li>Reduced time spent on manual scheduling and follow-up emails by more than 50%.</li>
+            <li>Reduced time spent on manual scheduling and follow-up emails through workflow automation.</li>
             <li>Gave leadership real-time visibility into volunteer coverage and donor pipeline health.</li>
             <li>Improved consistency of rider onboarding and safety documentation.</li>
           </ul>

@@ -23,7 +23,7 @@ export function Header() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-200 bg-[var(--bg)]/90 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[rgba(7,12,26,0.85)] backdrop-blur-xl">
       <Container className="flex items-center justify-between py-4">
         <Link
           href="/"
@@ -31,7 +31,7 @@ export function Header() {
           aria-label="Ethan Hall home"
           onClick={close}
         >
-          <span className="rounded-xl bg-[var(--accent)] px-3 py-1 text-base font-bold text-white shadow-sm">
+          <span className="rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.85)] px-3 py-1 text-base font-bold text-ink shadow-[0_0_24px_-12px_var(--glow)]">
             Ethan G. Hall
           </span>
         </Link>
@@ -42,8 +42,8 @@ export function Header() {
               href={item.href}
               prefetch
               className={cn(
-                "text-sm font-medium text-muted-ink transition hover:text-[var(--accent-strong)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]",
-                pathname === item.href && "text-ink",
+                "rounded-full border border-transparent px-3 py-1.5 text-sm font-semibold text-muted-ink transition hover:border-[var(--border)] hover:text-[var(--ink)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]",
+                pathname === item.href && "border-[var(--border)] bg-[rgba(36,212,198,0.14)] text-ink",
               )}
             >
               {item.name}
@@ -52,7 +52,7 @@ export function Header() {
         </nav>
         <button
           type="button"
-          className="flex size-11 items-center justify-center rounded-xl border border-slate-200 text-ink md:hidden"
+          className="flex size-11 items-center justify-center rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.8)] text-ink md:hidden"
           onClick={() => setOpen((prev) => !prev)}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -75,8 +75,8 @@ export function Header() {
                 onClick={close}
                 prefetch
                 className={cn(
-                  "rounded-xl border border-slate-200 bg-[var(--card)] px-4 py-3 text-sm font-medium text-ink shadow-sm",
-                  pathname === item.href && "border-[var(--accent)] text-[var(--accent-strong)]",
+                  "rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.85)] px-4 py-3 text-sm font-semibold text-ink shadow-[0_16px_32px_-22px_rgba(0,0,0,0.8)]",
+                  pathname === item.href && "border-[var(--accent)] bg-[rgba(36,212,198,0.14)] text-[var(--ink)]",
                 )}
               >
                 {item.name}

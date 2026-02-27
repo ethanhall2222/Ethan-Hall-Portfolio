@@ -23,14 +23,14 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("py-14 md:py-20", className)}
+      className={cn("py-16 md:py-24 reveal", className)}
       aria-labelledby={title ? `${id ?? title.toLowerCase().replace(/\s+/g, "-")}-title` : undefined}
     >
       <Container className={contentClassName}>
         {(title || subtitle || headline) && (
           <div className="mb-10 max-w-3xl">
             {subtitle && (
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
                 {subtitle}
               </p>
             )}

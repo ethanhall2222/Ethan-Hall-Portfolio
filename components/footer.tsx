@@ -9,8 +9,8 @@ export function Footer() {
       <Container className="flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
         <div className="max-w-sm space-y-2 text-sm text-muted-ink">
           <p>
-            Open to product, analytics, and AI-focused roles where business context and technical execution actually
-            meet.
+            Technical Transformation Analyst at Deloitte and graduate student exploring how applied AI, analytics, and
+            thoughtful implementation can make complex systems more useful.
           </p>
         </div>
         <SocialLinks />

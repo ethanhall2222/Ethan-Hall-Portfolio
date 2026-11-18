@@ -18,7 +18,7 @@ export function ProjectCard({ title, blurb, href, stack, className, children }: 
   return (
     <article
       className={cn(
-        "group glass flex h-full flex-col justify-between rounded-2xl p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_70px_-35px_var(--glow)] focus-within:-translate-y-1.5",
+        "group glass interactive-card flex h-full flex-col justify-between rounded-2xl p-6",
         className,
       )}
     >

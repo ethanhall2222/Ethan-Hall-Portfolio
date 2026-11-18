@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Command, Menu, Search, X } from "lucide-react";
 import Link from "next/link";
 import type { Route } from "next";
 import { usePathname } from "next/navigation";
@@ -31,8 +31,14 @@ export function Header() {
           aria-label="Ethan Hall home"
           onClick={close}
         >
-          <span className="rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.85)] px-3 py-1 text-base font-bold text-ink shadow-[0_0_24px_-12px_var(--glow)]">
-            Ethan G. Hall
+          <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent)] to-sky-400 text-sm font-extrabold text-slate-950 shadow-[0_0_24px_-10px_var(--glow)]">
+            EH
+          </span>
+          <span className="leading-tight">
+            <span className="block text-sm font-bold text-ink">Ethan G. Hall</span>
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-ink">
+              Technology · Data · AI
+            </span>
           </span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
@@ -50,16 +56,30 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <button
-          type="button"
-          className="flex size-11 items-center justify-center rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.8)] text-ink md:hidden"
-          onClick={() => setOpen((prev) => !prev)}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close navigation" : "Open navigation"}
-        >
-          {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("portfolio:open-command"))}
+            className="group flex h-10 items-center gap-2 rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.65)] px-3 text-muted-ink transition hover:border-[var(--border-strong)] hover:text-ink focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)]"
+            aria-label="Open command menu"
+          >
+            <Search className="size-4 transition group-hover:text-[var(--accent)]" aria-hidden />
+            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.14em] lg:inline">Explore</span>
+            <span className="hidden items-center gap-0.5 rounded-md border border-[var(--border)] px-1.5 py-0.5 text-[9px] lg:inline-flex">
+              <Command className="size-2.5" aria-hidden />K
+            </span>
+          </button>
+          <button
+            type="button"
+            className="flex size-11 items-center justify-center rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.8)] text-ink md:hidden"
+            onClick={() => setOpen((prev) => !prev)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+          >
+            {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
+          </button>
+        </div>
       </Container>
       {open && (
         <nav

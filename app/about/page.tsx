@@ -1,4 +1,5 @@
-import { MapPin } from "lucide-react";
+import { BriefcaseBusiness, MapPin, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 import { Button } from "@/components/button";
 import { Timeline, TimelineItem } from "./timeline";
@@ -7,36 +8,58 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata = {
   title: "About",
-  description: "The story, values, and milestones behind Ethan G. Hall.",
+  description:
+    "Ethan Hall is a Technical Transformation Analyst at Deloitte and WVU graduate pursuing a master's in Applied AI and Data Analytics.",
 };
 
 const current: TimelineItem[] = [
   {
+    role: "Technical Transformation Analyst",
+    org: "Deloitte",
+    dateLabel: "2026 - Present",
+    end: null,
+    notes: [
+      "Support technology transformation work across implementation, process design, and client delivery.",
+      "Translate business needs into structured technical requirements and practical implementation plans.",
+      "Build experience navigating complex stakeholder, system, and change-management considerations.",
+    ],
+  },
+  {
+    role: "Master’s Student · Applied AI & Data Analytics",
+    org: "West Virginia University",
+    dateLabel: "2026 - Present",
+    end: null,
+    notes: [
+      "Deepening my understanding of applied AI systems, analytics, and responsible implementation.",
+      "Connecting graduate coursework to enterprise technology and data transformation challenges.",
+    ],
+  },
+];
+
+const history: TimelineItem[] = [
+  {
     role: "Lewis Fellow · Product & Analytics Lead",
     org: "Data Driven WV",
     start: "2025-08-01",
-    end: null,
+    end: "2026-05-10",
     location: "Morgantown, WV · Hybrid",
     notes: [
-      "Guide nonprofit and agency partners through discovery, data cleanup, and impact dashboards.",
-      "Prototype AI copilots that summarize codebases and reduce onboarding time for volunteer developers.",
-      "Coach student analytics teams on stakeholder interviews, experiments, and storytelling.",
+      "Guided nonprofit and agency partners through discovery, data cleanup, and system design.",
+      "Prototyped AI tools for codebase understanding and enterprise knowledge workflows.",
+      "Coordinated student teams through stakeholder interviews, sprint planning, and delivery.",
     ],
   },
   {
     role: "Neidermeyer Scholar",
     org: "West Virginia University",
     start: "2023-08-01",
-    end: null,
+    end: "2026-05-10",
     location: "Morgantown, WV",
     notes: [
-      "Mentor first-year business students on systems thinking and leadership habits.",
-      "Run workshops on translating classroom analytics into client-ready deliverables.",
+      "Mentored business students on systems thinking and leadership habits.",
+      "Helped translate classroom analytics into clear, client-ready deliverables.",
     ],
   },
-];
-
-const history: TimelineItem[] = [
   {
     role: "Supply Chain Analytics Intern",
     org: "Dot Foods",
@@ -60,12 +83,13 @@ const history: TimelineItem[] = [
     ],
   },
   {
-    role: "Student · MIS & Business Data Analytics",
+    role: "B.S. · Management Information Systems",
     org: "West Virginia University",
     start: "2022-08-15",
     end: "2026-05-10",
     location: "Morgantown, WV",
     notes: [
+      "Graduated with a minor in Business Data Analytics.",
       "Capstone research on AI-assisted interview preparation and talent matching.",
       "Peer tutor for Econ 201 and analytics coursework; lead presenter for case competitions.",
     ],
@@ -73,57 +97,59 @@ const history: TimelineItem[] = [
 ];
 
 const quickFacts = [
-  { label: "Currently", value: "Lewis Fellow · Data Driven WV" },
-  { label: "Based", value: "Martinsburg & Morgantown, WV" },
-  { label: "Focus", value: "Analytics storytelling & AI helpers" },
+  { label: "Currently", value: "Technical Transformation Analyst · Deloitte" },
+  { label: "Graduate", value: "M.S. · Applied AI & Data Analytics" },
+  { label: "Certified", value: "Anthropic Claude Associate" },
+  { label: "Bachelor’s", value: "MIS · Business Data Analytics minor" },
 ];
 
 const narrativeParagraphs = [
-  "Hey, I’m Ethan. I grew up in Martinsburg helping family and friends make sense of spreadsheets, and I never stopped experimenting with ways to make work feel calmer. That curiosity pushed me toward systems thinking, analytics, and building tools that people actually enjoy using.",
-  "At Data Driven WV and in my WVU coursework, I lead projects that translate messy operational questions into dashboards, workflows, and AI helpers. My favorite work happens when I can embed with a team, listen, and ship improvements that are measurable within a week.",
-  "Outside of client work, I teach newer students how to manage projects, host work sessions to unblock friends on technical hurdles, and document playbooks so knowledge doesn’t vanish. I’m usually sketching ideas in Notion, tracking metrics in a spreadsheet, or experimenting with a new model.",
+  "I’m Ethan, a Technical Transformation Analyst at Deloitte focused on the point where business needs, technology implementation, and people come together. I like taking complicated processes apart, finding the friction, and rebuilding them into systems that are easier to understand and use.",
+  "I graduated from West Virginia University with a bachelor’s degree in Management Information Systems and a minor in Business Data Analytics. I’m now continuing at WVU in a master’s program in Applied AI and Data Analytics, and I recently earned the Anthropic Claude Associate Certification.",
+  "Before Deloitte, I worked across analytics, automation, AI prototyping, and nonprofit systems through Data Driven WV and an industry internship. Those experiences taught me to pair technical execution with clear communication, careful documentation, and the realities of how teams adopt change.",
 ];
 
 const interests = [
-  { title: "Quick experiments", detail: "Rapid prototypes to test ideas before investing in heavy builds." },
-  { title: "Story-driven analytics", detail: "Turning data into narratives that help execs and teammates act quickly." },
-  { title: "Team enablement", detail: "Documentation, office hours, and workshops that keep everyone aligned." },
-  { title: "AI with intent", detail: "Helpful copilots for research, onboarding, and repetitive analysis tasks." },
+  { title: "Structured problem solving", detail: "Breaking broad transformation challenges into clear, buildable work." },
+  { title: "Technical translation", detail: "Connecting business context with implementation details and system constraints." },
+  { title: "Team enablement", detail: "Documentation, facilitation, and practical handoffs that help change stick." },
+  { title: "Applied AI", detail: "Exploring useful, governed AI patterns for knowledge, automation, and decision support." },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16 space-y-16">
+    <main className="mx-auto max-w-6xl space-y-16 px-6 py-16">
       <section className="flex flex-col gap-6 lg:flex-row">
-        <aside className="flex shrink-0 flex-col gap-6 rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-subtle backdrop-blur lg:w-[300px]">
-          <div className="overflow-hidden rounded-2xl border border-white/60 bg-gradient-to-br from-blue-100/60 via-white to-transparent p-3">
-            <div className="overflow-hidden rounded-xl bg-white/70 shadow-lg">
-              <img
+        <aside className="glass flex shrink-0 flex-col gap-6 rounded-3xl p-6 lg:w-[330px]">
+          <div className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[rgba(11,17,32,0.72)] p-3">
+            <div className="pointer-events-none absolute -right-10 -top-10 size-28 rounded-full bg-[rgba(36,212,198,0.18)] blur-2xl" aria-hidden />
+            <div className="overflow-hidden rounded-xl shadow-lg">
+              <Image
                 src={`${basePath}/images/EthanHallHeadshot.jpeg`}
                 alt="Portrait of Ethan G. Hall"
                 width={280}
                 height={280}
                 className="h-full w-full object-cover"
-                loading="eager"
+                priority
               />
             </div>
           </div>
 
-            <div className="space-y-4">
+          <div className="space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-semibold tracking-tight text-ink">Ethan G. Hall</h1>
               <p className="text-base text-muted-ink">
-                Product-minded analyst helping Appalachian teams turn data into confident action.
+                Technical transformation analyst building practical systems at the intersection of business, data, and AI.
               </p>
             </div>
 
             <div className="space-y-3 text-sm text-muted-ink">
               {quickFacts.map((fact) => (
-                <div key={fact.label} className="flex gap-3 rounded-2xl border border-slate-200 bg-white/80 px-4 py-3">
+                <div key={fact.label} className="rounded-2xl border border-[var(--border)] bg-[rgba(16,26,49,0.62)] px-4 py-3">
                   <span className="min-w-[92px] shrink-0 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                     {fact.label}
                   </span>
-                  <span className="leading-relaxed">{fact.value}</span>
+                  <span className="mt-1 block leading-relaxed text-ink">{fact.value}</span>
                 </div>
               ))}
             </div>
@@ -144,13 +170,14 @@ export default function AboutPage() {
           </div>
         </aside>
 
-        <article className="flex-1 rounded-3xl border border-slate-200 bg-white/70 p-10 shadow-subtle backdrop-blur">
+        <article className="glass flex-1 rounded-3xl p-7 sm:p-10">
           <header className="space-y-4">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--accent-strong)]/30 bg-[var(--accent)]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--accent-strong)]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--accent-strong)]/30 bg-[var(--accent)]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
+              <Sparkles className="size-3.5" aria-hidden />
               About Ethan
             </span>
             <h2 className="text-3xl font-semibold leading-tight text-ink">
-              Turning questions into confident decisions for the teams I serve.
+              Turning transformation goals into systems teams can actually carry forward.
             </h2>
           </header>
 
@@ -164,7 +191,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold text-ink">What I’m known for</h3>
             <ul className="grid gap-3 md:grid-cols-2">
               {interests.map((item) => (
-                <li key={item.title} className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-muted-ink">
+                <li key={item.title} className="interactive-card rounded-2xl border border-[var(--border)] bg-[rgba(16,26,49,0.55)] px-4 py-3 text-sm text-muted-ink">
                   <p className="font-semibold text-ink">{item.title}</p>
                   <p className="mt-1 text-sm">{item.detail}</p>
                 </li>
@@ -174,17 +201,17 @@ export default function AboutPage() {
         </article>
       </section>
 
-      <section aria-labelledby="timeline-title" className="space-y-8 rounded-3xl border border-slate-200 bg-white/70 p-10 shadow-subtle backdrop-blur">
+      <section aria-labelledby="timeline-title" className="glass space-y-8 rounded-3xl p-7 sm:p-10">
         <div className="space-y-2">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[var(--accent-strong)]/30 bg-[var(--accent)]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--accent-strong)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[var(--accent-strong)]/30 bg-[var(--accent)]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
+            <BriefcaseBusiness className="size-3.5" aria-hidden />
             Journey
           </span>
           <h2 id="timeline-title" className="text-2xl font-semibold text-ink">
             Experience Chapters
           </h2>
           <p className="text-sm text-muted-ink">
-            A blend of fellowships, internships, and studio work that sharpened my ability to listen, build quickly, and
-            deliver measurable impact.
+            Education and work that shaped how I approach implementation, analytics, AI, and organizational change.
           </p>
         </div>
 

@@ -5,6 +5,7 @@ import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ExperienceLayer } from "@/components/experience-layer";
 import { cn } from "@/lib/utils";
 import { siteMeta } from "@/lib/seo";
 
@@ -57,6 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn("flex min-h-screen flex-col bg-[var(--bg)]", manrope.variable, sora.variable)}>
+        <ExperienceLayer />
         <a
           href="#main-content"
           className="absolute left-4 top-4 -translate-y-20 rounded-lg bg-ink px-3 py-2 text-sm font-semibold text-white focus:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)]"

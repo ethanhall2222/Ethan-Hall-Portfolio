@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const BOOKINGS_URL =
   "https://outlook.office.com/bookwithme/user/a629f516c98f43a8bdfab45b3c5081db@mail.wvu.edu/meetingtype/fyn28bteO0WFROeRZLiyfw2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
@@ -54,11 +55,12 @@ export default function ContactPage() {
         >
           <div className="flex flex-col items-center text-center">
             <div className="w-32 overflow-hidden rounded-full border-4 border-white shadow-lg">
-              <img
+              <Image
                 src={`${basePath}/images/EthanHallHeadshot.jpeg`}
                 alt="Ethan Hall"
+                width={128}
+                height={128}
                 className="h-32 w-32 object-cover"
-                loading="lazy"
               />
             </div>
             <div className="mt-4 space-y-1">

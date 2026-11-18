@@ -1,4 +1,14 @@
-import { ArrowRight, Mail, Linkedin, MapPin, Sparkles, ChartNoAxesCombined, BrainCircuit } from "lucide-react";
+import {
+  ArrowRight,
+  Mail,
+  Linkedin,
+  MapPin,
+  Sparkles,
+  ChartNoAxesCombined,
+  BrainCircuit,
+  BriefcaseBusiness,
+  GraduationCap,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
@@ -11,19 +21,24 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const recentWins = [
   {
-    title: "Earned Databricks Fundamentals Certification",
+    title: "Earned the Anthropic Claude Associate Certification",
     description:
-      "Built practical fluency with Lakehouse workflows, data pipelines, and analytics architecture used by business teams.",
+      "Added a formal Anthropic credential to my continued work and graduate study in applied AI.",
   },
   {
-    title: "Developed Interview Coach AI Web App",
+    title: "Started at Deloitte",
     description:
-      "Shipped a role-specific mock interview experience that generates prompts and evaluates responses with structured feedback.",
+      "Joined Deloitte as a Technical Transformation Analyst, working where technology strategy, implementation, and organizational change meet.",
   },
   {
-    title: "Launched Portfolio and Case Study Hub",
+    title: "Began graduate study in applied AI",
     description:
-      "Turned projects into clear narratives with measurable outcomes, implementation details, and working demos.",
+      "Started a master’s program in Applied AI and Data Analytics to deepen my technical foundation in intelligent systems and data-driven decision-making.",
+  },
+  {
+    title: "Graduated from West Virginia University",
+    description:
+      "Earned my bachelor’s degree in Management Information Systems with a minor in Business Data Analytics.",
   },
 ];
 
@@ -49,9 +64,18 @@ const projectOverviews: Array<{ title: string; blurb: string; href: Route }> = [
 ];
 
 const stats = [
-  { label: "Active Builds", value: "02" },
-  { label: "Major Tracks", value: "03" },
-  { label: "Focus", value: "AI + Data" },
+  { label: "Current Role", value: "Deloitte" },
+  { label: "Graduate Study", value: "Applied AI" },
+  { label: "Certified", value: "Claude Associate" },
+];
+
+const signals = [
+  "Technology transformation",
+  "Applied AI",
+  "Data systems",
+  "Enterprise implementation",
+  "Responsible automation",
+  "Human-centered delivery",
 ];
 
 export default function HomePage() {
@@ -60,20 +84,25 @@ export default function HomePage() {
       <Section id="about" className="pt-8 md:pt-14" contentClassName="space-y-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center">
           <div className="space-y-7 reveal">
-            <p className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[rgba(16,26,49,0.8)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-              <Sparkles className="size-3.5" aria-hidden />
-              Ethan G. Hall
-            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[rgba(16,26,49,0.8)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
+                <Sparkles className="size-3.5" aria-hidden />
+                Ethan G. Hall
+              </p>
+              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-ink">
+                <span className="status-dot" aria-hidden />
+                Building at Deloitte
+              </p>
+            </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl">
-              Business-minded builder turning <span className="text-[var(--accent)]">messy workflows</span> into
-              real systems.
+              Turning complex technology change into <span className="gradient-text">systems people can use.</span>
             </h1>
 
             <p className="max-w-2xl text-lg text-muted-ink">
-              I&apos;m a senior at West Virginia University studying Management Information Systems with a minor in
-              Business Data Analytics. Through Data Driven WV, I work on agentic AI repository analysis and nonprofit
-              CRM implementation.
+              I&apos;m a Technical Transformation Analyst at Deloitte and a West Virginia University graduate with a
+              bachelor&apos;s in Management Information Systems and a minor in Business Data Analytics. I&apos;m currently
+              pursuing a master&apos;s in Applied AI and Data Analytics.
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -93,15 +122,16 @@ export default function HomePage() {
 
             <div className="grid gap-3 sm:grid-cols-3">
               {stats.map((stat) => (
-                <div key={stat.label} className="glass rounded-2xl px-4 py-3">
-                  <p className="text-xl font-bold text-ink">{stat.value}</p>
+                <div key={stat.label} className="glass interactive-card rounded-2xl px-4 py-3">
+                  <p className="text-lg font-bold text-ink">{stat.value}</p>
                   <p className="text-xs uppercase tracking-[0.18em] text-muted-ink">{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <aside className="glass floaty rounded-3xl p-6 sm:p-8">
+          <aside className="glass floaty relative overflow-hidden rounded-3xl p-6 sm:p-8">
+            <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full border border-[var(--border)] bg-[rgba(36,212,198,0.08)]" aria-hidden />
             <div className="mx-auto mb-6 w-fit rounded-full border border-[var(--border)] bg-[rgba(11,17,32,0.72)] p-2">
               <Image
                 src={`${basePath}/images/EthanHallHeadshot.jpeg`}
@@ -111,6 +141,19 @@ export default function HomePage() {
                 className="h-44 w-44 rounded-full object-cover sm:h-56 sm:w-56"
                 priority
               />
+            </div>
+
+            <div className="mb-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <div className="rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.72)] p-3">
+                <BriefcaseBusiness className="mb-2 size-4 text-[var(--accent)]" aria-hidden />
+                <p className="text-xs uppercase tracking-[0.16em] text-muted-ink">Now</p>
+                <p className="mt-1 text-sm font-semibold text-ink">Technical Transformation</p>
+              </div>
+              <div className="rounded-xl border border-[var(--border)] bg-[rgba(16,26,49,0.72)] p-3">
+                <GraduationCap className="mb-2 size-4 text-[var(--accent-warm)]" aria-hidden />
+                <p className="text-xs uppercase tracking-[0.16em] text-muted-ink">Learning</p>
+                <p className="mt-1 text-sm font-semibold text-ink">Applied AI + Analytics</p>
+              </div>
             </div>
 
             <ul className="space-y-3 text-sm text-muted-ink">
@@ -150,6 +193,21 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <div className="signal-rail" aria-label="Areas of focus">
+        <div className="signal-track">
+          <div className="signal-group">
+            {signals.map((signal) => (
+              <span key={signal} className="signal-item">{signal}</span>
+            ))}
+          </div>
+          <div className="signal-group" aria-hidden>
+            {signals.map((signal) => (
+              <span key={`duplicate-${signal}`} className="signal-item">{signal}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <Section
         id="currently"
         contentClassName="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start"
@@ -161,13 +219,13 @@ export default function HomePage() {
           </div>
           <div className="space-y-5 text-base text-muted-ink sm:text-lg">
             <p>
-              My WVU coursework centers on analytics, business intelligence, and information systems strategy. I&apos;ve
-              worked through database management, data mining, and business analytics with a focus on practical
-              execution.
+              At Deloitte, I&apos;m building experience at the intersection of technology implementation, process
+              transformation, and client delivery. The work lets me apply the systems thinking and analytics foundation
+              I developed at WVU to larger, more complex environments.
             </p>
             <p>
-              Right now I&apos;m in computational statistics using R for business decision-making and building two web
-              apps on the side: a meme-token comparison platform and an AI career helper for interview and resume prep.
+              Alongside work, I&apos;m pursuing a master&apos;s in Applied AI and Data Analytics and continuing to build tools
+              around trustworthy AI, workflow automation, and grounded enterprise knowledge retrieval.
             </p>
           </div>
         </div>
@@ -193,7 +251,7 @@ export default function HomePage() {
         id="featured"
         title="Project snapshots"
         subtitle="Explore"
-        headline="Deep dives across partner work, coursework, and personal builds."
+        headline="A mix of enterprise systems, academic work, and hands-on product experiments."
         contentClassName="space-y-6"
       >
         <div className="grid gap-6 md:grid-cols-3">

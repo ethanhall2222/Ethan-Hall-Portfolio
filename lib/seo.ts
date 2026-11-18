@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 export const siteMeta = {
   name: "Ethan Hall - Portfolio",
   titleTemplate: "%s - Ethan Hall",
-  description: "MIS + Business Data Analytics student at WVU building AI-powered tools, analytics, and automation.",
+  description:
+    "Technical Transformation Analyst at Deloitte and WVU graduate pursuing a master's in Applied AI and Data Analytics.",
   url: "https://ethanhall.dev",
   ogImage: "/og.jpg",
 };
